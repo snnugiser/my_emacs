@@ -12,6 +12,20 @@
 (defconst *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
 
 ;;----------------------------------------------------------------------------
+;;cedet setting
+;;----------------------------------------------------------------------------
+(require 'init-cedet)
+;(load-file "~/.emacs.d/init-cedet.el")
+
+;;----------------------------------------------------------------------------
+;;ecb set
+;;----------------------------------------------------------------------------
+(add-to-list 'load-path
+	     "~/.emacs.d/ecb")
+(require 'ecb)
+
+
+;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (require 'init-compat)
@@ -19,6 +33,9 @@
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
+
+
+
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
@@ -125,6 +142,11 @@
 ;;----------------------------------------------------------------------------
 (require 'init-locales)
 
+
+;;----------------------------------------------------------------------------
+;;emacs matlab setting
+;;---------------------------------------------------------------------------
+(require 'init-matlab)
 
 ;; Local Variables:
 ;; coding: utf-8
